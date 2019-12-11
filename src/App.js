@@ -9,6 +9,7 @@ import Specials from './components/ButtonComponents/SpecialButtons/Specials'
 
 // Logo has already been provided for you. Do the same for the remaining components
 import Logo from "./components/DisplayComponents/Logo";
+//import { props } from "bluebird";
 
 function App() {
   // STEP 5 - After you get the components displaying using the provided data file, write your state hooks here.
@@ -18,10 +19,10 @@ function App() {
   // Don't forget to pass the functions (and any additional data needed) to the components as props
 
   const [display, setDisplay] = useState('')
-  const addNum = (number) => {
+  const addNumber = (number) => {
     setDisplay(display => display + number)
   }
-  const addOp = (operator) => {
+  const addOperator = (operator) => {
     if (operator === '=') {
       setDisplay(display => eval(display))
     } else {
@@ -35,6 +36,10 @@ function App() {
       <div className="App">
         {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
         <Display number={display} />
+        <Numbers addNumber={addNumber} />
+        <Operators addOperator={addOperator} />
+        <Specials />
+       
       </div>
     </div>
   );
